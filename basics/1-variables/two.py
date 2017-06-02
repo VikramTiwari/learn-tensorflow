@@ -10,5 +10,5 @@ model = tf.global_variables_initializer()
 with tf.Session() as session:
     # run the model in session
     session.run(model)
-    # run the session nad pass it y to compute
+    # run the session and pass it y to compute
     print(session.run(y))
