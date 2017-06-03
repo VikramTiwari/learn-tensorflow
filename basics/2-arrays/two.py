@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt # used to plot data
 import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-filename = os.path.join(dir_path, 'MarshaOrchid.jpg')
+filename = os.path.join(dir_path, 'MarshOrchid.jpg')
 
 image = mpimg.imread(filename)
 plt.imshow(image) # plot image
