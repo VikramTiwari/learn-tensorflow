@@ -16,10 +16,10 @@ model = tf.global_variables_initializer()
 with tf.Session() as session:
     shape = session.run(tf.shape(image, name='shape'))
     half_left = tf.slice(image, [0, 0, 0],
-                         [shape[0], int(shape[1] / 2), shape[2]])
+                         [shape[0], int(shape[1] / 2), shape[2]]) # split the image into left half
     half_right = tf.reverse_sequence(
-        half_left, [int(shape[1] / 2)] * shape[0], 1, batch_dim=0)
-    x = tf.concat([half_left, half_right], 1)
+        half_left, [int(shape[1] / 2)] * shape[0], 1, batch_dim=0) # copy the left half to generate right half which is reverse sequence
+    x = tf.concat([half_left, half_right], 1) # join them together
     session.run(model)
     result = session.run(x)
 
